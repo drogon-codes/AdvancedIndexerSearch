@@ -1,0 +1,24 @@
+﻿@model List<Tuple<int, string, float>>
+@{
+    ViewData["Title"] = "ViewTupleCollection";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>ViewTupleCollection</h1>
+<br />
+<table class="table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Marks</th>
+        <th>Marks</th>
+    </tr>
+    @foreach (var tpl in @Model)
+    {
+    <tr>
+        <td>@tpl.Item1</td>
+        <td>@tpl.Item2</td>
+        <td>@tpl.Item3</td>
+    </tr>
+    }
+</table>
+<br />

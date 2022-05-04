@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Search</h1>
+
+<form asp-action="Search">
+    <input type="text" name="txtName" placeholder="Enter Course Name"/>
+    <input type="submit" value="Search" class="btn btn-primary"/>
+</form>
+<br/>
+<hr/>
+@if (ViewData["courses"] != null)
+{
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                Course Id
+            </th>
+            <th>
+               Course Name
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (List<MyCourse>)ViewData["courses"])
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+}

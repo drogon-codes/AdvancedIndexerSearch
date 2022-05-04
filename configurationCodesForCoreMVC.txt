@@ -1,0 +1,29 @@
+Data Source=DESKTOP-4B8UI45\MSSQLSERVER01;Initial Catalog=CollegeDB;Integrated Security=True
+
+Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+Microsoft.EntityFrameworkCore.Tools
+
+Microsoft.EntityFrameworkCore.SqlServer
+
+Microsoft.VisualStudio.Web.CodeGeneration
+
+             
+
+
+
+Scaffold-DbContext "Data Source=DESKTOP-4B8UI45\MSSQLSERVER01;Initial Catalog=DiamondDB;Integrated Security=True;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models //cmdCommand
+
+
+,
+  "ConnectionStrings": {
+    "DBConnectionStrings": "Connection String;"
+  } //appsettings.JSON
+
+
+services.AddDbContext<DICTDBContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DBConnectionStrings"))); //
+
+
+
+ConfigurationBuilder confBuilder = new ConfigurationBuilder();
+                optionsBuilder.UseSqlServer(confBuilder.Build().GetSection("ConnectionStrings:DBConnectionStrings").Value);
